@@ -11,8 +11,10 @@
     <div id="editorjs"></div>
 
     <script>
+        const content = await fetch('./content/aPiece.json')
         const editor = new EditorJS({
-          autofocus: true
+          autofocus: true,
+          data: content
         });
     </script>
   </body>
