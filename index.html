@@ -16,7 +16,7 @@
         console.log(response)
         const editor = new EditorJS({
           autofocus: true,
-          data: response.body.toString()
+          data: response.body.text()
         });
       }
       loadTheEditor('./content/aPiece.json')
