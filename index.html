@@ -22,13 +22,31 @@
 
 <!-- <script src="simple-image.js"></script> -->
 <!-- <link href="simple-image.css" rel="stylesheet"/> -->
-
+<script src='./octokat.js'></script>
   </head>
   <body>
-
+    <input type="button" onclick="saveStuff()"
     <div id="editorjs"></div>
 
     <script>
+      function saveStuff() {
+        var token = prompt('whats the token?')
+        console.log('using token', token)
+        var octo = new Octokat({token: token})
+        var repo = octo.repos('fredagvdd', 'tangocovers')
+        var config = {
+          message: 'Updating file',
+          content: base64encode('New file contents'),
+          sha: '123456789abcdef', // the blob SHA
+          // branch: 'gh-pages'
+        }
+
+        repo.contents('README.md').add(config)
+        .then((info) => {
+          console.log('File Updated. new sha is ', info.commit.sha)
+        })
+      }
+      
       async function loadTheEditor(contentUrl) {
         const response = await fetch(contentUrl)
         const contentJson = await response.json()
