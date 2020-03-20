@@ -13,10 +13,10 @@
     <script>
       async function loadTheEditor(contentUrl) {
         const response = await fetch(contentUrl)
-        console.log(response)
+        const contentJson = await response.json()
         const editor = new EditorJS({
           autofocus: true,
-          data: response.body.text()
+          data: contentJson
         });
       }
       loadTheEditor('./content/aPiece.json')
