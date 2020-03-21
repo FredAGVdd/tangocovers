@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Content Editor</title>
+    <meta http-equiv="Cache-Control" content="no-store" />
 
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest"></script>
@@ -25,9 +26,9 @@
 <script src='./octokat.js'></script>
   </head>
   <body>
-    <input type="button" onclick="saveStuff()"
+    
     <div id="editorjs"></div>
-
+    <input type="button" onclick="saveStuff()">
     <script>
       function saveStuff() {
         var token = prompt('whats the token?')
